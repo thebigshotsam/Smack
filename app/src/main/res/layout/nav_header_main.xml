@@ -14,27 +14,47 @@
         android:gravity="bottom">
 
     <ImageView
-            android:layout_width="67dp"
-            android:layout_height="65dp" app:srcCompat="@drawable/profiledefault"
-            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/profiledefault"
+            android:id="@+id/userImageNavHeader"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginStart="8dp"
+            android:layout_above="@+id/loginBtnNavHeader" android:layout_marginBottom="8dp"/>
     <TextView
             android:text="Saksham"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:layout_marginStart="8dp" android:layout_toEndOf="@+id/imageView" android:textSize="18sp"
+            android:id="@+id/userNameNavHeader"
+            android:layout_marginStart="8dp" android:layout_toEndOf="@+id/userImageNavHeader" android:textSize="18sp"
             android:textColor="@android:color/white"
-            android:layout_alignTop="@+id/imageView" android:layout_marginTop="0dp"/>
+            android:layout_alignTop="@+id/userImageNavHeader" android:layout_marginTop="0dp"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="8dp"/>
     <TextView
             android:text="saksham@offical.com"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignBottom="@+id/imageView" android:id="@+id/textView3"
+            android:layout_height="wrap_content" android:layout_alignBottom="@+id/userImageNavHeader"
+            android:id="@+id/userEmailNavHeader"
             android:layout_marginBottom="-1dp"
             android:layout_marginTop="0dp"
-            android:layout_below="@+id/textView" android:layout_toEndOf="@+id/imageView"
+            android:layout_below="@+id/userNameNavHeader" android:layout_toEndOf="@+id/userImageNavHeader"
             android:layout_marginStart="8dp" android:textAppearance="@android:style/TextAppearance.Material.Small"
-            android:textColor="@android:color/white" android:textSize="18sp"/>
+            android:textColor="@android:color/white" android:textSize="18sp" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"/>
+    <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp" app:srcCompat="@drawable/addchannelbutton"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="8dp" android:layout_alignParentBottom="true"
+            android:id="@+id/addChannelBtn" android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent" android:scaleType="fitXY"
+            android:onClick="addChannelBtnClicked"/>
+    <Button
+            android:text="Login"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:id="@+id/loginBtnNavHeader"
+            android:layout_alignParentStart="true" android:layout_marginStart="16dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent" android:textSize="18sp" android:textAllCaps="false"
+            android:onClick="loginBtnNavClicked" android:textAlignment="viewStart"/>
 </RelativeLayout>
