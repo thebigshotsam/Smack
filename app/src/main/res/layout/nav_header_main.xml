@@ -14,8 +14,8 @@
         android:gravity="bottom">
 
     <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp" app:srcCompat="@drawable/profiledefault"
+            android:layout_width="55dp"
+            android:layout_height="55dp" app:srcCompat="@drawable/profiledefault"
             android:id="@+id/userImageNavHeader"
             android:layout_alignParentStart="true"
             android:layout_marginStart="8dp"
@@ -25,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/userNameNavHeader"
-            android:layout_marginStart="8dp" android:layout_toEndOf="@+id/userImageNavHeader" android:textSize="18sp"
+            android:layout_marginStart="8dp" android:layout_toEndOf="@+id/userImageNavHeader" android:textSize="14sp"
             android:textColor="@android:color/white"
-            android:layout_alignTop="@+id/userImageNavHeader" android:layout_marginTop="0dp"
+            android:layout_alignTop="@+id/userImageNavHeader" android:layout_marginTop="8dp"
             android:layout_alignParentEnd="true" android:layout_marginEnd="8dp"/>
     <TextView
             android:text="saksham@offical.com"
@@ -38,7 +38,7 @@
             android:layout_marginTop="0dp"
             android:layout_below="@+id/userNameNavHeader" android:layout_toEndOf="@+id/userImageNavHeader"
             android:layout_marginStart="8dp" android:textAppearance="@android:style/TextAppearance.Material.Small"
-            android:textColor="@android:color/white" android:textSize="18sp" android:layout_alignParentEnd="true"
+            android:textColor="@android:color/white" android:textSize="14sp" android:layout_alignParentEnd="true"
             android:layout_marginEnd="8dp"/>
     <ImageButton
             android:layout_width="30dp"
