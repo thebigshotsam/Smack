@@ -11,6 +11,7 @@ import com.android.volley.toolbox.Volley
 import com.thebigshot_developers.saksham.smack.Utilities.URL_CREATE_USER
 import com.thebigshot_developers.saksham.smack.Utilities.URL_LOGIN
 import com.thebigshot_developers.saksham.smack.Utilities.URL_REGISTER
+import com.thebigshot_developers.saksham.smack.Utilities.URL_USER_BY_EMAIL
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -74,16 +75,14 @@ object AuthService {
                 userEmail=response.getString("user")
                 authtoken=response.getString("token")
                 isLoggedIn=true
-                complete(true)}catch(e:JSONException){
-                Log.d("JSON","EXC:"+e.localizedMessage)
-                complete(false)
+                complete(true)
             }catch(e:JSONException){
                 Log.d("JSON","EXC:"+e.localizedMessage)
                 complete(false)
             }
         },Response.ErrorListener {error->
             //this is where we deal with our error
-            Log.d("ERROR", "Could not Register User: $error")
+            Log.d("ERROR", "Could not login User: $error")
             complete(false)
         }){
             override fun getBody(): ByteArray {
@@ -137,5 +136,41 @@ object AuthService {
             }
         }
         Volley.newRequestQueue(context).add(createRequest)
+    }
+    fun findUserEmail(context:Context,complete:(Boolean)->Unit){
+
+        val findUserEmailRequest=object :JsonObjectRequest(Method.GET, "$URL_USER_BY_EMAIL$userEmail",null,Response.Listener { response ->
+            try{
+                UserDataService.name=response.getString("name")
+                UserDataService.avatarName=response.getString("avatarName")
+                UserDataService.id=response.getString("_id")
+                UserDataService.avatarColor=response.getString( "avatarColor")
+                UserDataService.email=response.getString("email")
+                complete(true)
+            }catch(e:JSONException){
+                Log.d("JSON","EXC:"+e.localizedMessage)
+                complete(false)
+            }
+        },Response.ErrorListener {error->
+            //this is where we deal with our error
+            Log.d("ERROR", "Could not Find User: $error")
+            complete(false)
+
+        }){
+
+
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+            override fun getHeaders(): MutableMap<String, String> {
+                val header=HashMap<String,String>()
+                header.put("Authorization","Bearer $authtoken")
+                return header
+            }
+        }
+        Volley.newRequestQueue(context).add(findUserEmailRequest)
+
+
     }
     }

@@ -6,5 +6,14 @@ object UserDataService {
     var email=""
     var avatarColor=""
     var avatarName=""
+    fun logout(){
+        id=""
+        name=""
+        avatarColor=""
+        avatarName=""
+        AuthService.userEmail=""
+        AuthService.authtoken=""
+        AuthService.isLoggedIn=false
+    }
 
 }
